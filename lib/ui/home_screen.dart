@@ -129,7 +129,7 @@ class _HomeScreenState extends State<HomeScreen> {
           Align(
             alignment: FractionalOffset.topCenter,
             child:(ple.length>0)?GridView.count(
-    crossAxisCount: 2,
+    crossAxisCount:ResponsiveInfo.isMobile(context)?2:3,
     crossAxisSpacing: 2.0,
     mainAxisSpacing: 2.0,
     padding: EdgeInsets.all(ResponsiveInfo.isMobile(context)?10:13),

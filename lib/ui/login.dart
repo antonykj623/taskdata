@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tasknew/data/SqlHelper.dart';
+
 import 'package:tasknew/models/login_response.dart';
 import 'package:tasknew/ui/home_screen.dart';
 import 'package:tasknew/ui/registration.dart';
@@ -130,10 +130,12 @@ Get.back();
               final preferenceDataStorage = await SharedPreferences
                   .getInstance();
                preferenceDataStorage.setString(AppConstants.token_key,lr.token!);
-                SqlHelper.createItem(AppConstants.profiledata).then((value) {
-
-                  Get.to(() =>  HomeScreen());
-                });
+              preferenceDataStorage.setString(
+                  AppConstants.profilekey, AppConstants.profiledata);
+                // SqlHelper.createItem(AppConstants.profiledata).then((value) {
+                //
+                //   Get.to(() =>  HomeScreen());
+                // });
 
 
 

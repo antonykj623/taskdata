@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 
 import 'dart:math';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:tasknew/data/SqlHelper.dart';
+
 import 'package:tasknew/data/user_profile.dart';
 
 import '../constants/Constants.dart';
@@ -191,19 +191,13 @@ class _ProfileState extends State<Profile> {
 
 getDbData()async
 {
-  SqlHelper.getItems().then((value) {
+  final preferenceDataStorage = await SharedPreferences
+      .getInstance();
+  String? a= preferenceDataStorage.getString(
+      AppConstants.profilekey);
 
-    var m=value;
-    if(m.length>0) {
-      var fetcheddata = m[0];
 
-      var data=fetcheddata['data'];
-
-      // Profile usp=Profi.fromJson();
-      //
-      // print(usp.phone);
-
-       var parseddata=json.decode(data);
+       var parseddata=json.decode(a.toString());
       setState(() {
 
         name=parseddata['name'].toString();
@@ -213,11 +207,11 @@ getDbData()async
         image=parseddata['image'].toString();
 
       });
-
-
-    }
-
-  });
+  //
+  //
+  //   }
+  //
+  // });
 }
 
 

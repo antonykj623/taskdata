@@ -60,7 +60,7 @@ class _CardState extends State<CardScreen> {
                     );
                   },
                   width: double.infinity,
-                  height: ResponsiveInfo.isMobile(context)?150:180,
+                  height: double.infinity,
                   fit: BoxFit.fill,
 
 
@@ -117,7 +117,7 @@ class _CardState extends State<CardScreen> {
 
                         Padding(padding: EdgeInsets.all(ResponsiveInfo.isMobile(context)?2:5),
 
-                          child: Text(hts.title!.toString(),style: TextStyle(color: Colors.black,fontSize:ResponsiveInfo.isMobile(context)? 13:15,),maxLines: 3,overflow: TextOverflow.ellipsis),
+                          child: Text(hts.title!.toString(),style: TextStyle(color: Colors.black,fontSize:ResponsiveInfo.isMobile(context)? 13:15,),maxLines: 2,overflow: TextOverflow.ellipsis),
                         ),
 
                         Padding(padding: EdgeInsets.all(ResponsiveInfo.isMobile(context)?2:5),

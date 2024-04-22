@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tasknew/data/SqlHelper.dart';
+
 import 'package:tasknew/data/registration_response.dart';
 import 'package:tasknew/ui/home_screen.dart';
 import 'package:tasknew/web/ApiProvider.dart';
@@ -124,7 +124,7 @@ class Registration extends StatelessWidget {
              RegistrationResponse lr = await ap.register(
                  m);
 
-             Get.back();
+             // Get.back();
              print(lr.id);
 
              if (lr.id!.toString().isNotEmpty) {
@@ -133,10 +133,13 @@ class Registration extends StatelessWidget {
                      .getInstance();
                  preferenceDataStorage.setString(
                      AppConstants.token_key, lr.id.toString());
-                 SqlHelper.createItem(AppConstants.profiledata).then((value) {
 
-                   Get.to(() =>  HomeScreen());
-                 });
+                 preferenceDataStorage.setString(
+                     AppConstants.profilekey, AppConstants.profiledata);
+                 // SqlHelper.createItem(AppConstants.profiledata).then((value) {
+                 //
+                    Get.to(() =>  HomeScreen());
+                 // });
 
 
                }
